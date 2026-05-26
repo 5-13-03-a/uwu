@@ -31,6 +31,7 @@ html {
     height: 100%;
     overflow: hidden;
     overscroll-behavior: none;
+    background-color: #ffffff;
 }
 
 *,
