@@ -45,42 +45,6 @@
     <link rel="stylesheet" href="css/modules/cot_settings.css">
     <link rel="stylesheet" href="css/modules/video_call.css">
 
-    <!-- Fix: 防止键盘弹出/输入时闪黑 -->
-    <style>
-        html, body {
-            background-color: #ffffff;
-        }
-        .phone-screen {
-            -webkit-transform: translateZ(0);
-            transform: translateZ(0);
-            -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
-            background-color: #ffffff;
-        }
-        #chat-room-screen {
-            background-color: #f5f5f5;
-            -webkit-transform: translateZ(0);
-            transform: translateZ(0);
-        }
-        #chat-room-screen .content {
-            -webkit-overflow-scrolling: touch;
-            -webkit-transform: translateZ(0);
-            transform: translateZ(0);
-        }
-        .chat-input-wrapper,
-        #chat-expansion-panel,
-        .message-input-area {
-            -webkit-transform: translateZ(0);
-            transform: translateZ(0);
-            -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
-        }
-        #message-area {
-            -webkit-transform: translateZ(0);
-            transform: translateZ(0);
-        }
-    </style>
-
     <!-- Other Styles -->
     <link rel="stylesheet" href="contacts.css">
     <link rel="stylesheet" href="more_menu.css">

@@ -228,17 +228,13 @@ function setupChatRoom() {
     // 监听输入框聚焦事件：自动收起底部面板，避免与键盘冲突
     messageInput.addEventListener('focus', () => {
         if (chatExpansionPanel.classList.contains('visible')) {
-            // 立即禁用动画并隐藏面板，防止键盘弹出时闪黑
-            chatExpansionPanel.style.visibility = 'hidden';
+            // 立即禁用动画，防止键盘弹出时面板被顶起
             chatExpansionPanel.classList.add('no-transition');
             showPanel('none');
-            // 等待一帧后恢复，确保浏览器已完成渲染
-            requestAnimationFrame(() => {
-                chatExpansionPanel.style.visibility = '';
-                requestAnimationFrame(() => {
-                    chatExpansionPanel.classList.remove('no-transition');
-                });
-            });
+            // 恢复动画属性
+            setTimeout(() => {
+                chatExpansionPanel.classList.remove('no-transition');
+            }, 100);
         }
     });
 
@@ -485,6 +481,10 @@ function openChatRoom(chatId, type) {
     updateCustomBubbleStyle(chatId, chat.customBubbleCss, chat.useCustomBubbleCss);
     renderMessages(false, true);
     switchScreen('chat-room-screen');
+    
+    requestAnimationFrame(() => {
+        void document.body.offsetHeight; 
+    });
 }
 
 async function sendMessage() {
